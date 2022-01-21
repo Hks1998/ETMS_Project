@@ -37,3 +37,15 @@ create table department(
     foreign key(project_id) REFERENCES project(project_id),
     foreign key(dept_id) REFERENCES department(dept_id)
 );
+
+CREATE TABLE task (
+	task_id INT primary key auto_increment,
+	task_name VARCHAR(100) NOT NULL,
+	status VARCHAR(50) NOT NULL,
+	description VARCHAR(300),
+	start_date date,
+	due_date date,
+	foreign key(emp_id) REFERENCES employee(emp_id),
+	foreign key(project_id) REFERENCES project(project_id),
+	foreign key(dept_id) REFERENCES department(dept_id),
+);
