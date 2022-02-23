@@ -1,0 +1,7 @@
+
+1. Change: Ongoing and completed task -> Mark as complete button(partial completion)
+2. Sort tasks according to date
+3. Admin adds employee instead of employees signing up themselves(try password change after first login)
+4. New user table(common atributes like password, profile, etc.) -> Admin table(new)
+																 -> Manager table
+																 -> Employee table
