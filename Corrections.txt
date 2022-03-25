@@ -5,3 +5,14 @@
 4. New user table(common atributes like password, profile, etc.) -> Admin table(new)
 																 -> Manager table
 																 -> Employee table
+																 
+
+employee - remove task_assigned varchar
+
+Task table: 
+status: Unassigned, in progress, complete
+
+
+table per class
+super class
+join class approach

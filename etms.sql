@@ -9,7 +9,6 @@ role  varchar(50) ,
 dept_id   int ,
 designation   varchar(50) ,
 manager_id   int,
-task_assigned  varchar(100) DEFAULT 'Unassigned'
 ); 
 
 alter table employee auto_increment=101;
@@ -50,8 +49,7 @@ create table department(
 CREATE TABLE task (
 	task_id INT primary key auto_increment,
 	task_name VARCHAR(100) NOT NULL,
-	status VARCHAR(50) DEFAULT 'In-progress',
-	assignment_status VARCHAR(50) DEFAULT 'Unassigned',  
+	status VARCHAR(50) DEFAULT 'Unassigned',  
 	description VARCHAR(300),
 	start_date date,
 	due_date date,
