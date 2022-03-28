@@ -4,6 +4,11 @@ import Signup from "./pages/Signup";
 import CreateProject from './pages/CreateProject'
 import AddTask from './pages/AddTask'
 import ProjectsList from './pages/ProjectsList'
+import ManagerHome from "./pages/ManagerHome"
+import TaskAssign from "./pages/TaskAssign"
+import Employee_Home from "./pages/Employee_Home"
+import Employee_Profile from "./pages/Employee_Profile"
+
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 
 function App() {
@@ -11,6 +16,7 @@ function App() {
     <div className="container">
       
       <h1>Employee Task Management System</h1>
+      <hr />
       <BrowserRouter>
         <Routes>
           <Route path="/signin" element={<Signin />} />
@@ -18,6 +24,12 @@ function App() {
           <Route path="/create-project" element={<CreateProject />} />
           <Route path="/add-task" element={<AddTask />} />
           <Route path="/projects-list" element={<ProjectsList />} />
+          <Route path="/managerHome" element={<ManagerHome />} />
+          <Route path="/taskAssign" element={<TaskAssign />} />
+          <Route path="/employee_home" element={<Employee_Home />} />
+          <Route path="/employee_profile" element={<Employee_Profile />} />
+          
+          
         </Routes>
       </BrowserRouter>
     </div>
