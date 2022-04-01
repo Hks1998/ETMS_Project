@@ -41,10 +41,8 @@ CREATE TABLE task (
 	dueDate date,
 	empId int,
 	projectId int,
-	deptId int,
 	foreign key(empId) REFERENCES employee(empId),
-	foreign key(projectId) REFERENCES project(projectId),
-	foreign key(deptId) REFERENCES department(deptId)
+	foreign key(projectId) REFERENCES project(projectId)
 );
 
 alter table task alter status set default 'Unassigned';
@@ -73,16 +71,16 @@ insert into department values(3,'Operations',103);
 insert into department values(4,'Administration',104);
 
 --Task Queries
-insert into task(taskName,description,startDate,dueDate,empId,projectId,deptId) 
-values('t1','Work distribution','2022-01-08','2022-06-06',101,1,1);
-insert into task(taskName,description,startDate,dueDate,empId,projectId,deptId) 
-values('t2','Work distribution','2022-01-08','2022-06-06',102,1,2);
-insert into task(taskName,description,startDate,dueDate,empId,projectId,deptId) 
-values('t3','Work distribution','2022-01-08','2022-06-06',102,1,3);
-insert into task(taskName,description,startDate,dueDate,empId,projectId,deptId) 
-values('t4','maintain employee records','2022-01-08','2022-06-06',102,1,4);
-insert into task(taskName,description,startDate,dueDate,empId,projectId,deptId) 
-values('t5','database creation','2022-01-08','2022-06-06',105,1,1);
+insert into task(taskName,description,startDate,dueDate,empId,projectId) 
+values('t1','Work distribution','2022-01-08','2022-06-06',101,1);
+insert into task(taskName,description,startDate,dueDate,empId,projectId) 
+values('t2','Work distribution','2022-01-08','2022-06-06',102,2);
+insert into task(taskName,description,startDate,dueDate,empId,projectId) 
+values('t3','Work distribution','2022-01-08','2022-06-06',102,3);
+insert into task(taskName,description,startDate,dueDate,empId,projectId) 
+values('t4','maintain employee records','2022-01-08','2022-06-06',102,4);
+insert into task(taskName,description,startDate,dueDate,empId,projectId) 
+values('t5','database creation','2022-01-08','2022-06-06',105,5);
 
 --DeptProject Queries
 insert into deptProject values(1,)
