@@ -7,4 +7,5 @@ import com.sunbeam.entities.Task;
 public interface TaskDao extends JpaRepository<Task, Integer>{
 
 	Task findByTaskId(int taskId);
+	
 }

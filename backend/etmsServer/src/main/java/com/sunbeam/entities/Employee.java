@@ -123,12 +123,7 @@ public class Employee {
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-//	public int getmanagerId() {
-//		return managerId;
-//	}
-//	public void setmanagerId(int managerId) {
-//		this.managerId = managerId;
-//	}
+
 	
 	
 	public List<Task> getTaskList() {
