@@ -1,7 +1,9 @@
 package com.sunbeam.services;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,7 +14,9 @@ import com.sunbeam.daos.EmployeeDao;
 import com.sunbeam.dtos.Credentials;
 import com.sunbeam.dtos.DtoEntityConverter;
 import com.sunbeam.dtos.EmployeeDTO;
+import com.sunbeam.dtos.TaskDTO;
 import com.sunbeam.entities.Employee;
+import com.sunbeam.entities.Task;
 
 @Transactional
 @Service
@@ -25,7 +29,6 @@ public class EmployeeServiceImpl {
 	@Autowired
 	private DtoEntityConverter converter;
 
-	
 //	public Employee findByEmpId(int empId) {
 //		Employee employee = employeeDao.findByEmpId(empId);
 //		return employee;
@@ -53,7 +56,7 @@ public class EmployeeServiceImpl {
 //		emp = employeeDao.save(emp);
 //		return Collections.singletonMap("insertedId", emp.getEmpId());
 //	}
-	
+
 //  ==================================================================================================
 
 	public EmployeeDTO findByEmpId(int empId) {
@@ -76,7 +79,20 @@ public class EmployeeServiceImpl {
 		}
 		return null;
 	}
-	
+
+	public List<EmployeeDTO> findAllEmployees() {
+		List<Employee> employeeList = employeeDao.findAll();
+		return employeeList.stream().map(employee -> converter.toEmployeeDto(employee)).collect(Collectors.toList());
+	}
+
+//	public List<EmployeeDTO> EmployeesWithTaskId() {
+//		
+//		List<Employee> employeeList = employeeDao.findAllEmployeesWithTaskId();
+//		return employeeList.stream()
+//			.map(employee -> converter.toEmployeeDto(employee))
+//			.collect(Collectors.toList());
+//	}
+
 	public EmployeeDTO saveEmployee(EmployeeDTO employeeDto) {
 		String rawPassword = employeeDto.getPassword();
 		employeeDto.setPassword(rawPassword);
@@ -85,6 +101,33 @@ public class EmployeeServiceImpl {
 		employeeDto = converter.toEmployeeDto(employee);
 		employeeDto.setPassword("*******");
 		return employeeDto;
+	}
+
+	public Map<String, Object> saveEmployee(Employee emp) {
+		String rawPassword = emp.getPassword();
+		emp.setPassword(rawPassword);
+
+		emp = employeeDao.save(emp);
+		return Collections.singletonMap("insertedId", emp.getEmpId());
+	}
+
+	public Employee update(Employee emp) {
+		return employeeDao.save(emp);
+	}
+
+	public Employee employeeProfile(int empId) {
+
+		Employee emp = employeeDao.findByEmpId(empId);
+
+		if (emp != null) {
+
+			return emp;
+		}
+		return null;
+	}
+
+	public Employee save(Employee emp) {
+		return employeeDao.save(emp);
 	}
 //  ==================================================================================================
 
@@ -97,6 +140,5 @@ public class EmployeeServiceImpl {
 //		return Collections.singletonMap("insertedId", employee.getEmpId());
 //	}
 //  ==================================================================================================
-	
 
 }

@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "project")
 public class Project {
@@ -41,7 +43,7 @@ public class Project {
 	}
 
 	public Project(int projectId, String projectName, String status, String projectDescription, Date startDate,
-			Date dueDate) {
+			Date dueDate, Department department) {
 		super();
 		this.projectId = projectId;
 		this.projectName = projectName;
@@ -49,6 +51,7 @@ public class Project {
 		this.projectDescription = projectDescription;
 		this.startDate = startDate;
 		this.dueDate = dueDate;
+		this.department = department;
 	}
 
 	public int getprojectId() {
@@ -105,6 +108,16 @@ public class Project {
 
 	public void setTaskList(List<Task> taskList) {
 		this.taskList = taskList;
+	}
+	
+	
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 	@Override

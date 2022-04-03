@@ -13,6 +13,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "task")
 public class Task {
@@ -31,9 +34,11 @@ public class Task {
 
 	@ManyToOne
 	@JoinColumn(name = "empId")
+	@JsonBackReference
 	private Employee employee;
 	@ManyToOne
 	@JoinColumn(name = "projectId")
+	@JsonIgnore
 	private Project project;
 
 	public Task() {

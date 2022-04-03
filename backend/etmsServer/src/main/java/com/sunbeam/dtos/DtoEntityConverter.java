@@ -15,6 +15,7 @@ public class DtoEntityConverter {
 			return null;
 		EmployeeDTO dto = new EmployeeDTO();
 //		dto.setDeptId(entity.getDept().getdeptId());
+		dto.setEmpId(entity.getEmpId());
 		dto.setDept(entity.getDept());
 		dto.setDesignation(entity.getDesignation());
 		dto.setEmail(entity.getEmail());
@@ -23,6 +24,7 @@ public class DtoEntityConverter {
 		dto.setPassword(entity.getPassword());
 		dto.setPhone(entity.getPhone());
 		dto.setRole(entity.getRole());
+		dto.setTaskList(entity.getTaskList());
 		return dto;
 	}
 	
@@ -35,7 +37,7 @@ public class DtoEntityConverter {
 //		dept.setdeptId(dto.getDeptId());
 		
 		entity.setDept(dto.getDept());
-
+		entity.setEmpId(dto.getEmpId());
 		entity.setDesignation(dto.getDesignation());
 		entity.setEmail(dto.getEmail());
 		entity.setManagerId(dto.getManagerId());
@@ -43,6 +45,7 @@ public class DtoEntityConverter {
 		entity.setPassword(dto.getPassword());
 		entity.setPhone(dto.getPhone());
 		entity.setRole(dto.getRole());
+		entity.setTaskList(dto.getTaskList());
 		return entity;
 	}
 	
@@ -52,6 +55,7 @@ public class DtoEntityConverter {
 		TaskDTO dto= new TaskDTO();
 		dto.setTaskId(entity.gettaskId());
 //		dto.setProjectId(entity.getProject().getprojectId());
+		dto.setEmployee(entity.getEmployee());
 		dto.setProject(entity.getProject());
 		dto.setTaskName(entity.gettaskName());
 		dto.setStartDate(entity.getstartDate());
@@ -67,11 +71,31 @@ public class DtoEntityConverter {
 		entity.settaskId(dto.getTaskId());
 //		Project proj = new Project();
 //		proj.setprojectId(dto.getProjectId());
+		entity.setEmployee(dto.getEmployee());
 		entity.setProject(dto.getProject());
 		entity.settaskName(dto.getTaskName());
 		entity.setstartDate(dto.getStartDate());
 		entity.setdueDate(dto.getDueDate());
 		entity.setStatus(dto.getStatus());
 		return entity;
+	}
+	
+	public Project toProjectEntity(Project project, ProjectDTO dto) {
+		project.setprojectName(dto.getProjectName());
+		project.setstartDate(dto.getStartDate());
+		project.setdueDate(dto.getDueDate());
+		project.setStatus(dto.getStatus());
+		project.setprojectDescription(dto.getProjectDescription());
+
+		return project;
+	}
+	
+	public Task toTaskEntity(Task task, TaskDTO dto) {
+		task.settaskName(dto.getTaskName());
+		task.setstartDate(dto.getStartDate());
+		task.setdueDate(dto.getDueDate());
+		task.setDescription(dto.getDescription());
+
+		return task;
 	}
 }

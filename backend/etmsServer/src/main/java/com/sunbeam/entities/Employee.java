@@ -13,6 +13,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 
 @Entity
@@ -28,6 +31,7 @@ public class Employee {
 	@NotNull
 	private String email ;
 	@NotNull
+	@JsonIgnore
 	private String password ;
 	@Column(unique = true)
 	private long phone; 
@@ -41,6 +45,7 @@ public class Employee {
 	private Department dept;
 	
 	@OneToMany(mappedBy="employee")
+	@JsonManagedReference
 	private List<Task> taskList;
 	
 	public Employee() {

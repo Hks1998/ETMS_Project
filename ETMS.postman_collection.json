@@ -1,0 +1,493 @@
+{
+	"info": {
+		"_postman_id": "4c80e006-3c63-424e-91ef-24b9fe461593",
+		"name": "ETMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "ManagerHome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/employee/101",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employee",
+								"101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AssignTask",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"In-progress\",\r\n    \"employee\":{\r\n        \"empId\": 112\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/manager/assignTask/7",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"manager",
+								"assignTask",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EmployeeTaskList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/manager/assignTask",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"manager",
+								"assignTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EmployeeTaskList Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/manager/markAsComplete/6",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"manager",
+								"markAsComplete",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UnassignedTask",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/manager/unassignedTasks",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"manager",
+								"unassignedTasks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin Copy",
+			"item": [
+				{
+					"name": "UpdateEmployee",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"White\",\r\n    \"dept\":{\r\n        \"deptId\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/employee/112",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employee",
+								"112"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_Employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"email\": \"ajay@test.com\",\r\n            \"name\": \"Ajay\",\r\n            \"password\": \"123452\",\r\n            \"phone\": 9999999929,\r\n            \"role\": \"admin\",\r\n            \"dept\": {\r\n                \"deptId\": 4,\r\n                \"deptName\": \"Administration\",\r\n                \"managerId\": 104\r\n            },\r\n            \"designation\": \"System Administrator(SAN)\",\r\n            \"managerId\": 0\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/admin/add_employee",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"add_employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/admin/list_employees",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"list_employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Employee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kitew\",\r\n    \"email\": \"kitew@test.com\",\r\n    \"password\": \"1134532\",\r\n    \"phone\": \"9923299329\",\r\n    \"role\": \"Manager\",\r\n    \"dept\":{\r\n        \"deptId\":1\r\n    },\r\n    \"designation\": \"Accounts\",\r\n    \"managerId\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/admin/editEmployee/112",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"editEmployee",
+								"112"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/deleteEmployee/113",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"deleteEmployee",
+								"113"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateEmployee details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/admin/updateProfile/114",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"admin",
+								"updateProfile",
+								"114"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Employee Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/employeeProfile/114",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employeeProfile",
+								"114"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": 9797979797\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/employeeUpdate/114",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"employeeUpdate",
+								"114"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "CreateProject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectName\": \"Darshan\",\r\n    \"projectDescription\": \"Database\",\r\n    \"deptId\": 2,\r\n    \"startDate\": \"2022-02-11\",\r\n    \"dueDate\": \"2022-07-05\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/manager/createProject",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"manager",
+								"createProject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"taskName\": \"t6\",\r\n    \"description\": \"Prize distribution\",\r\n    \"projectId\": 1,\r\n    \"startDate\": \"2022-01-08\",\r\n    \"dueDate\": \"2022-06-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/manager/addTask",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"manager",
+								"addTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProjectList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/manager/projectList",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"manager",
+								"projectList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProjectListStatus",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"In-progress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/manager/projectList/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"manager",
+								"projectList",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dept\":{\r\n        \"deptId\": 1\r\n    },\r\n    \"designation\": \"Java developer\",\r\n    \"email\": \"pragya@test.com\",\r\n    \"managerId\": 101,\r\n    \"name\": \"pragya\",\r\n    \"password\": \"111\",\r\n    \"phone\": \"9999999995\",\r\n    \"role\": \"employee\"    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/admin/signup",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"admin",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"rahul@test.com\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/employee/signin",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"employee",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
