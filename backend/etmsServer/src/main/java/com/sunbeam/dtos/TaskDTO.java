@@ -3,14 +3,14 @@ package com.sunbeam.dtos;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sunbeam.entities.Employee;
 import com.sunbeam.entities.Project;
 
-
+@JsonIgnoreProperties(allowSetters = true, value = { "employee" })
 public class TaskDTO {
 
 	private int taskId;
-	@JsonIgnore
 	private Employee employee;
 	private Project project;
 	private String taskName;
@@ -19,13 +19,10 @@ public class TaskDTO {
 	private String status;
 	private String description;
 	private int projectId;
-	
+
 	public TaskDTO() {
 		// TODO Auto-generated constructor stub
 	}
-
-	
-
 
 	public TaskDTO(int taskId, Employee employee, Project project, String taskName, Date startDate, Date dueDate,
 			String status, String description, int projectId) {
@@ -40,9 +37,6 @@ public class TaskDTO {
 		this.description = description;
 		this.projectId = projectId;
 	}
-
-
-
 
 	public int getTaskId() {
 		return taskId;
@@ -64,11 +58,10 @@ public class TaskDTO {
 		return employee;
 	}
 
-
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
+
 	public Project getProject() {
 		return project;
 	}
@@ -80,7 +73,6 @@ public class TaskDTO {
 	public String getTaskName() {
 		return taskName;
 	}
-
 
 	public void setTaskName(String taskName) {
 		this.taskName = taskName;
@@ -110,35 +102,21 @@ public class TaskDTO {
 		this.status = status;
 	}
 
-	
-	
 	public String getDescription() {
 		return description;
 	}
-
-
-
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-
-
-
 	public int getProjectId() {
 		return projectId;
 	}
 
-
-
-
 	public void setProjectId(int projectId) {
 		this.projectId = projectId;
 	}
-
-
-
 
 	@Override
 	public String toString() {
@@ -147,10 +125,4 @@ public class TaskDTO {
 				taskId, employee, project, taskName, startDate, dueDate, status, description, projectId);
 	}
 
-
-
-
-	
-	
-	
 }

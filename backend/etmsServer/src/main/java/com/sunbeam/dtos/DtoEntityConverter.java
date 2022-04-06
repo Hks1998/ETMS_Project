@@ -61,6 +61,7 @@ public class DtoEntityConverter {
 		dto.setStartDate(entity.getstartDate());
 		dto.setDueDate(entity.getdueDate());
 		dto.setStatus(entity.getStatus());
+		dto.setDescription(entity.getDescription());
 		return dto;
 	}
 	
@@ -77,6 +78,7 @@ public class DtoEntityConverter {
 		entity.setstartDate(dto.getStartDate());
 		entity.setdueDate(dto.getDueDate());
 		entity.setStatus(dto.getStatus());
+		entity.setDescription(dto.getDescription());
 		return entity;
 	}
 	
@@ -84,9 +86,8 @@ public class DtoEntityConverter {
 		project.setprojectName(dto.getProjectName());
 		project.setstartDate(dto.getStartDate());
 		project.setdueDate(dto.getDueDate());
-		project.setStatus(dto.getStatus());
+		project.setStatus("In-progress");
 		project.setprojectDescription(dto.getProjectDescription());
-
 		return project;
 	}
 	
@@ -95,7 +96,8 @@ public class DtoEntityConverter {
 		task.setstartDate(dto.getStartDate());
 		task.setdueDate(dto.getDueDate());
 		task.setDescription(dto.getDescription());
-
+		task.setStatus("Unassigned");
+		System.out.println(task);
 		return task;
 	}
 }

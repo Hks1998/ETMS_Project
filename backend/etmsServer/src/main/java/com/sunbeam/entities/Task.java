@@ -126,7 +126,7 @@ public class Task {
 	@Override
 	public String toString() {
 		return "Task [taskId=" + taskId + ", taskName=" + taskName + ", status=" + status + ", description="
-				+ description + ", startDate=" + startDate + ", dueDate=" + dueDate + ", empId=" + employee.getEmpId()
+				+ description + ", startDate=" + startDate + ", dueDate=" + dueDate
 				+ ", projectId=" + project.getprojectId() + "]";
 	}
 

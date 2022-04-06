@@ -59,9 +59,10 @@ public class EmployeeServiceImpl {
 
 //  ==================================================================================================
 
-	public EmployeeDTO findByEmpId(int empId) {
+	public Employee findByEmpId(int empId) {
 		Employee employee = employeeDao.findByEmpId(empId);
-		return converter.toEmployeeDto(employee);
+		//return converter.toEmployeeDto(employee);
+		return employee;
 	}
 
 	public EmployeeDTO findByEmail(String email) {

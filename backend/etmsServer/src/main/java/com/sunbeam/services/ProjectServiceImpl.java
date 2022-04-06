@@ -25,6 +25,7 @@ public class ProjectServiceImpl {
 
 	public Map<String, Object> createProject(Project project, ProjectDTO projectDto) {
 		project = converter.toProjectEntity(project, projectDto);
+		System.out.println(project);
 		project = projectDao.save(project);
 		return Collections.singletonMap("insertedId", project.getprojectId());
 	}

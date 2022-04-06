@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sunbeam.daos.EmployeeDao;
 import com.sunbeam.dtos.DtoEntityConverter;
 import com.sunbeam.dtos.EmployeeDTO;
 import com.sunbeam.dtos.ProjectDTO;
@@ -52,6 +53,7 @@ public class ManagerControllerImpl {
 		Project project = new Project();
 		Department dept = deptService.getDepartment(projectDTO.getDeptId());
 		project.setDepartment(dept);
+		System.out.println(project);
 		projectService.createProject(project, projectDTO);
 		return Response.success(project);
 	}
@@ -138,7 +140,8 @@ public class ManagerControllerImpl {
 //		===========================================================
 		
 		task.setStatus(taskDto.getStatus());
-		task.setEmployee(taskDto.getEmployee());
+		//task.setEmployee(taskDto.getEmployee());
+		task.setEmployee(empService.findByEmpId(taskDto.getEmployee().getEmpId()));
 		Task updatedTask = managerService.save(task);
 		if (updatedTask != null)
 			return Response.success(updatedTask);

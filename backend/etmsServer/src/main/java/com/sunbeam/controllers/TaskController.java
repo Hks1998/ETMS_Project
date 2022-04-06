@@ -28,11 +28,14 @@ public class TaskController {
 
 	@PostMapping("/manager/addTask")
 	public ResponseEntity<?> addTask(@RequestBody TaskDTO taskDTO) {
-		System.out.println("Creating: " + taskDTO);
-		System.out.println("Desc : " + taskDTO.getDescription());
+		//System.out.println("Creating: " + taskDTO);
+		//System.out.println("Desc : " + taskDTO.getDescription());
 		Task task = new Task();
+		
 		Project project = projectService.getProject(taskDTO.getProjectId());
 		task.setProject(project);
+		System.out.println(project);
+		System.out.println(task);
 		taskService.addTask(task, taskDTO);
 		return Response.success(task);
 	}

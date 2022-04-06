@@ -24,6 +24,7 @@ public class TaskServiceImpl {
 
 	public Map<String, Object> addTask(Task task, TaskDTO taskDto) {
 		task = converter.toTaskEntity(task, taskDto);
+		System.out.println(task);
 		task = taskDao.save(task);
 		return Collections.singletonMap("insertedId", task.gettaskId());
 	}
