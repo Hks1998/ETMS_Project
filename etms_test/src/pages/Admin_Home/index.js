@@ -1,30 +1,47 @@
+import { useNavigate } from 'react-router'
+
 const Admin_Home = () => {
+
+  const navigate = useNavigate()
+
+  const logoutUser = () => {
+    // remove the logged users details from session storage
+    sessionStorage.removeItem('empId')
+    sessionStorage.removeItem('name')
+    sessionStorage.removeItem('dept.deptId')
+    sessionStorage.removeItem('loginStatus')
+
+    navigate('/signin')
+  }
+
   return (
     <>
-    <hr />
-    
-    
+      <hr />
+
+
       <div className="row">
-        
+
         <div className="col">
           <h3>Admin Home Page</h3>
         </div>
         <div className="col"></div>
         <div className="col"></div>
-        <div className="col"></div>
         <div className="col">
-        
-<div class="btn-group">
-  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Welcome,Username
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome,Username
   </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Profile</a></li>
-    <li><a class="dropdown-item" href="#">Change Password</a></li>
-    <li><hr class="dropdown-divider" /></li>
-    <li><a class="dropdown-item" href="#">Log Out</a></li>
-  </ul>
-</div>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Change Password</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">
+                <button onClick={logoutUser} className="dropdown-item">
+                  Logout
+                </button></a></li>
+            </ul>
+          </div>
 
         </div>
         <br />
@@ -34,14 +51,14 @@ const Admin_Home = () => {
         <br />
         <br />
         <div className="row">
-        <div className="col"></div>
-        <div className="col"><button type="button" class="btn btn-primary"><h3>Add New Employee</h3></button></div>
-        <div className="col"></div>
-    </div>
-    </div>
-    <br />
-    <br />
-    <br />
+          <div className="col"></div>
+          <div className="col"><button type="button" class="btn btn-primary"><h3>Add New Employee</h3></button></div>
+          <div className="col"></div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
       <div>
         <table class="table">
           <thead>
@@ -64,10 +81,10 @@ const Admin_Home = () => {
               <td>1</td>
               <td>102</td>
               <td><div className="row">
-              <div className="col">
-              <button type="button" class="btn btn-primary">Update</button></div>
-              <div className="col">
-              <button type="button" class="btn btn-primary">Delete</button>
+                <div className="col">
+                  <button type="button" class="btn btn-primary">Update</button></div>
+                <div className="col">
+                  <button type="button" class="btn btn-primary">Delete</button>
                 </div></div></td>
             </tr>
             <tr>
@@ -78,14 +95,14 @@ const Admin_Home = () => {
               <td>2</td>
               <td>104</td>
               <td><div className="row">
-              <div className="col">
-              <button type="button" class="btn btn-primary">Update</button></div>
-              <div className="col">
-              <button type="button" class="btn btn-primary">Delete</button>
+                <div className="col">
+                  <button type="button" class="btn btn-primary">Update</button></div>
+                <div className="col">
+                  <button type="button" class="btn btn-primary">Delete</button>
                 </div></div></td>
             </tr>
-           
-           
+
+
           </tbody>
         </table>
       </div>
