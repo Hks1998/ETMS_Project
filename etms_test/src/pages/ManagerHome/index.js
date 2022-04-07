@@ -1,8 +1,31 @@
 import './index.css'
 import { useNavigate } from 'react-router'
-
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import TaskList from '../../component/TaskList'
+import { URL } from '../../config'
 
 const ManagerHome = () => {
+
+    const [employeeTasks, setEmployeeTasks] = useState([])
+    const id = sessionStorage['EmpId']
+
+    const searchTasks = () => {
+        const url = `${URL}/employee/${id}`
+        axios.get(url).then((response) => {
+            const result = response.data
+            if (result['status'] == 'success') {
+                setEmployeeTasks(result['data'])
+            } else {
+                toast.error(result['error'])
+            }
+        })
+    }
+
+    useEffect(() => {
+        searchTasks()
+    }, [])
 
     const navigate = useNavigate()
 
@@ -16,6 +39,7 @@ const ManagerHome = () => {
         navigate('/signin')
     }
 
+    
     return (
         <div>
             <div id="headerRow" className="row">
@@ -35,7 +59,7 @@ const ManagerHome = () => {
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="#">
                                 <button onClick={logoutUser} className="dropdown-item">
-                                Logout
+                                    Logout
                                 </button></a></li>
                         </ul>
                     </div>
@@ -74,20 +98,12 @@ const ManagerHome = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>2</td>
-                                <td>Work distribution</td>
-                                <td>2020-05-21</td>
-                                <td>2022-05-21</td>
-                                <td>In-progress</td>
-                                <td>
-                                    <div className="mb-3">
-                                        <button className="btn btn-primary">Mark as complete</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
+                            {employeeTasks.map((tempTask) => {
+                                return <TaskList task={tempTask} />
+                            })}
+
+                            {/* <TaskList task={employeeTasks} /> */}
+                            {/* <tr>
                                 <th scope="row">2</th>
                                 <td>4</td>
                                 <td>Database review</td>
@@ -125,7 +141,7 @@ const ManagerHome = () => {
                                         <button className="btn btn-primary">Mark as complete</button>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> */}
                         </tbody>
                     </table>
                 </div>
