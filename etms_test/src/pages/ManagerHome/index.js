@@ -10,6 +10,8 @@ const ManagerHome = () => {
 
     const [employeeTasks, setEmployeeTasks] = useState([])
     const id = sessionStorage['EmpId']
+    const username = sessionStorage['Name']
+
 
     const searchTasks = () => {
         const url = `${URL}/employee/${id}`
@@ -39,7 +41,14 @@ const ManagerHome = () => {
         navigate('/signin')
     }
 
-    
+    const goToProfile = () => {
+        navigate('/employee_profile')
+    }
+    const changePassword = () => {
+        navigate('/change_password')
+    }
+
+
     return (
         <div>
             <div id="headerRow" className="row">
@@ -51,11 +60,17 @@ const ManagerHome = () => {
                 <div className="col">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Welcome, username
-                    </button>
+                            Welcome, {username}
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Change password</a></li>
+                            <li><a class="dropdown-item" href="#">
+                                <button onClick={goToProfile} className="dropdown-item">
+                                    My profile
+                                </button></a></li>
+                            <li><a class="dropdown-item" href="#">
+                                <button onClick={changePassword} className="dropdown-item">
+                                    Change password
+                                </button></a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="#">
                                 <button onClick={logoutUser} className="dropdown-item">
@@ -101,47 +116,6 @@ const ManagerHome = () => {
                             {employeeTasks.map((tempTask) => {
                                 return <TaskList task={tempTask} />
                             })}
-
-                            {/* <TaskList task={employeeTasks} /> */}
-                            {/* <tr>
-                                <th scope="row">2</th>
-                                <td>4</td>
-                                <td>Database review</td>
-                                <td>2021-03-15</td>
-                                <td>2022-11-14</td>
-                                <td>In-progress</td>
-                                <td>
-                                    <div className="mb-3">
-                                        <button className="btn btn-primary">Mark as complete</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>1</td>
-                                <td>Backend review</td>
-                                <td>2020-12-01</td>
-                                <td>2022-07-13</td>
-                                <td>Complete</td>
-                                <td>
-                                    <div className="mb-3">
-                                        <button className="btn btn-primary">Mark as complete</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>3</td>
-                                <td >Project briefing</td>
-                                <td>2020-12-01</td>
-                                <td>2022-07-13</td>
-                                <td>Complete</td>
-                                <td>
-                                    <div className="mb-3">
-                                        <button className="btn btn-primary">Mark as complete</button>
-                                    </div>
-                                </td>
-                            </tr> */}
                         </tbody>
                     </table>
                 </div>
