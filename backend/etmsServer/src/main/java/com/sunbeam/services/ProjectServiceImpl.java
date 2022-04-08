@@ -13,6 +13,7 @@ import com.sunbeam.daos.ProjectDao;
 import com.sunbeam.dtos.DtoEntityConverter;
 import com.sunbeam.dtos.ProjectDTO;
 import com.sunbeam.entities.Project;
+import com.sunbeam.entities.Task;
 
 @Transactional
 @Service
@@ -33,6 +34,13 @@ public class ProjectServiceImpl {
 	public Project getProject(int projectId) {
 		Project project = projectDao.getById(projectId);
 		return project;
+	}
+	
+	public List<Project> getSortedProjects(int deptId) {
+//		Employee emp= empDao.findByEmpId(empId);
+		List<Project> sortedProjectList = projectDao.sortedProjects(deptId);
+				
+		return sortedProjectList;
 	}
 
 	public List<Project> listAllProjects() {
