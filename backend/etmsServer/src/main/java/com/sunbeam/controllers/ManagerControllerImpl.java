@@ -57,6 +57,13 @@ public class ManagerControllerImpl {
 		projectService.createProject(project, projectDTO);
 		return Response.success(project);
 	}
+	
+	@GetMapping("/manager/projectList/{deptId}")
+	public ResponseEntity<?> sortedProjects(@PathVariable("deptId") int deptId) {
+		List<Project> projectList = new ArrayList<>();
+		projectList = projectService.getSortedProjects(deptId);
+		return Response.success(projectList);
+	}
 
 	@GetMapping("/manager/projectList")
 	public ResponseEntity<?> listAllProjects() {
