@@ -2,7 +2,6 @@ package com.sunbeam.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +18,8 @@ import com.sunbeam.daos.EmployeeDao;
 import com.sunbeam.dtos.Credentials;
 import com.sunbeam.dtos.EmployeeDTO;
 import com.sunbeam.dtos.Response;
+import com.sunbeam.dtos.TaskDTO;
 import com.sunbeam.entities.Employee;
-import com.sunbeam.entities.Task;
 import com.sunbeam.services.EmployeeServiceImpl;
 import com.sunbeam.services.ManagerServiceImpl;
 
@@ -63,7 +62,7 @@ public class EmployeeControllerImpl {
 	@GetMapping("/employee/{empId}")
 	public ResponseEntity<?> sortedTasks(@PathVariable("empId") int empId) {
 		
-		List<Task> taskList = new ArrayList<>();
+		List<TaskDTO> taskList = new ArrayList<>();
 		taskList = managerService.getSortedTasks(empId);
 		return Response.success(taskList);
 		
