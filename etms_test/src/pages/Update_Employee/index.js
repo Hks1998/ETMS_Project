@@ -106,127 +106,127 @@ const Update_Employee = () => {
       <h2>Update Employee Details</h2>
       <hr />
       <br />
-      <form>
-        <div class="row mb-3">
-          <label htmlFor="inputEmail3" class="col-sm-2 col-form-label">
-            Name
+
+      <div class="row mb-3">
+        <label htmlFor="inputEmail3" class="col-sm-2 col-form-label">
+          Name
           </label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="inputName"
-              defaultValue={name}
-              onChange={e => setName(e.target.value)}
-            ></input>
-          </div>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputName"
+            defaultValue={name}
+            onChange={e => setName(e.target.value)}
+          ></input>
         </div>
-        <div class="row mb-3">
-          <label class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="inputEmail"
-              defaultValue={email}
-              onChange={e => setEmail(e.target.value)}
-            ></input>
-          </div>
+      </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputEmail"
+            defaultValue={email}
+            onChange={e => setEmail(e.target.value)}
+          ></input>
         </div>
-        <div class="row mb-3">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">
-            Password
+      </div>
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">
+          Password
           </label>
-          <div class="col-sm-10">
-            <input
-              type="password"
-              class="form-control"
-              id="inputPassword"
-              defaultValue={password}
-              onChange={e => setPassword(e.target.value)}
-            ></input>
-          </div>
+        <div class="col-sm-10">
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword"
+            defaultValue={password}
+            onChange={e => setPassword(e.target.value)}
+          ></input>
         </div>
-        <div class="row mb-3">
-          <label class="col-sm-2 col-form-label">Designation</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="inputDesignation"
-              defaultValue={designation}
-              onChange={e => setDesignation(e.target.value)}
-            ></input>
-          </div>
+      </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Designation</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputDesignation"
+            defaultValue={designation}
+            onChange={e => setDesignation(e.target.value)}
+          ></input>
         </div>
-        <div class="row mb-3">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">
-            Phone
+      </div>
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">
+          Phone
           </label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="inputPhone"
-              defaultValue={phone}
-              onChange={e => setPhone(e.target.value)}
-            ></input>
-          </div>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputPhone"
+            defaultValue={phone}
+            onChange={e => setPhone(e.target.value)}
+          ></input>
         </div>
-        <div class="row mb-3">
-          <label class="col-sm-2 col-form-label">Manager ID</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="inputManagerId"
-              defaultValue={managerId}
-              onChange={e => setManagerId(e.target.value)}
-            ></input>
-          </div>
+      </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Manager ID</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputManagerId"
+            defaultValue={managerId}
+            onChange={e => setManagerId(e.target.value)}
+          ></input>
         </div>
-        <div class="row mb-3">
-          <label class="col-sm-2 col-form-label">Department ID</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="inputDepartmentId"
-              defaultValue={deptId}
-              onChange={e => setDeptId(e.target.value)}
-            ></input>
-          </div>
+      </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Department ID</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputDepartmentId"
+            defaultValue={deptId}
+            onChange={e => setDeptId(e.target.value)}
+          ></input>
         </div>
-        <div class="row mb-3">
-          <label class="col-sm-2 col-form-label">Role</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="inputRole"
-              defaultValue={role}
-              onChange={e => setRole(e.target.value)}
-            ></input>
-          </div>
+      </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Role</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputRole"
+            defaultValue={role}
+            onChange={e => setRole(e.target.value)}
+          ></input>
         </div>
-        <br />
-        <br />
-        <div className="row">
-          <div className="col"></div>
-          <div className="col">
-            {" "}
-            <button onClick={update} type="submit" class="btn btn-primary">
-              Submit
+      </div>
+      <br />
+      <br />
+      <div className="row">
+        <div className="col"></div>
+        <div className="col">
+          {" "}
+          <button onClick={update} type="submit" class="btn btn-primary">
+            Submit
             </button>
-          </div>
-          <div className="col">
-            {" "}
-            <button onClick={back} type="submit" class="btn btn-primary">
-              Back
-            </button>
-          </div>
         </div>
-      </form>
+        <div className="col">
+          {" "}
+          <button onClick={back} type="submit" class="btn btn-primary">
+            Back
+            </button>
+        </div>
+      </div>
+
     </>
   );
 };

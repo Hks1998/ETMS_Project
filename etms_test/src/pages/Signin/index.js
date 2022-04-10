@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { URL } from '../../config'
-import Employee from '../../components/Employee'
+
 
 const Signin = () => {
     const [email, setEmail] = useState('')
@@ -43,9 +43,9 @@ const Signin = () => {
                     sessionStorage['loginStatus'] = 1
                     sessionStorage['Role'] = role
 
-                    if(role == 'admin')
+                    if (role == 'admin')
                         navigate('/admin_home')
-                    else if(role == 'manager')
+                    else if (role == 'manager')
                         navigate('/managerHome')
                     else
                         navigate('/employee_home')
@@ -58,6 +58,8 @@ const Signin = () => {
 
     return (
         <div>
+            
+            <br /><br />
             <h2>Signin</h2>
             <hr />
             <div className="row" >

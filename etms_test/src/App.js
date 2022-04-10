@@ -25,8 +25,18 @@ const Homepage = () => {
 function App() {
   return (
     <div className="container">
+      <div className="row">
+        <div className="col-md-auto" >
+          <img width="90px" src="./images/etms.ico" alt="Logo" />
+        </div>
+        <div className="col" id="etms">
+          <h1>Employee Task Management System</h1>
+        </div>
 
-      <h1>Employee Task Management System</h1>
+
+
+      </div>
+
       <hr />
       <BrowserRouter>
         <Routes>
