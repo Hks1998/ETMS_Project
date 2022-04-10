@@ -26,7 +26,7 @@ const Update_Employee = () => {
     const url = `${URL}/admin/employeeProfile/${empId}`;
     axios.get(url).then((response) => {
       const result = response.data;
-      
+
       console.log(result);
       setName(result.data.name);
       setEmail(result.data.email);
@@ -42,11 +42,11 @@ const Update_Employee = () => {
       //        toast.error(result['error'])
       //    }
     });
-   
+
     console.log(name);
   }
-  const update = ()=> {
-    let body={}
+  const update = () => {
+    let body = {}
     if (name.length == 0) {
       toast.warning('please enter name')
       console.log("1")
@@ -62,32 +62,31 @@ const Update_Employee = () => {
     } else if (deptId.length == 0) {
       toast.warning('please enter department Id')
       console.log("5")
-    }else if (designation.length == 0) {
+    } else if (designation.length == 0) {
       toast.warning('please enter designation')
       console.log("6")
-    }else if (role.length == 0) {
+    } else if (role.length == 0) {
       toast.warning('please enter role')
       console.log("7")
     }
     else {
-      
-       body = {
+
+      body = {
         name,
         email,
         phone,
         password,
-        "dept":{
+        "dept": {
           deptId
-      },
+        },
         designation,
         managerId,
         role,
       }
-    
+
       const url = `${URL}/admin/editEmployee/${empId}`
       axios.put(url, body).then((response) => {
         const result = response.data
-        debugger
         if (result['status'] == 'success') {
           toast.success('updated successfully')
           navigate('/admin_home')
@@ -96,9 +95,9 @@ const Update_Employee = () => {
         }
       })
     }
-    
+
   }
-  const back = ()=> {
+  const back = () => {
     navigate('/admin_home')
   }
   return (
@@ -222,7 +221,7 @@ const Update_Employee = () => {
           </div>
           <div className="col">
             {" "}
-            <button onClick={back}type="submit" class="btn btn-primary">
+            <button onClick={back} type="submit" class="btn btn-primary">
               Back
             </button>
           </div>

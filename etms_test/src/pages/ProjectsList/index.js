@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 const ProjectsList = () => {
 
   const [employeeProjects, setEmployeeProjects] = useState([])
-  const deptId = sessionStorage['DeptID']
+  const deptId = sessionStorage['DeptId']
 
   const searchProjects = () => {
     const url = `${URL}/manager/projectList/${deptId}`

@@ -14,6 +14,7 @@ const CreateProject = () => {
     const [dueDate, setDueDate] = useState('')
     const [projectDescription, setProjectDescription] = useState('')
 
+    const navigate = useNavigate()
 
     const save = () => {
         //console.log("saving data..");
@@ -48,6 +49,8 @@ const CreateProject = () => {
                 const result = response.data
                 if (result['status'] == 'success') {
                     toast.success('New project created..')
+
+                    navigate('/managerHome')
 
                 } else {
                     toast.error(result['error'])

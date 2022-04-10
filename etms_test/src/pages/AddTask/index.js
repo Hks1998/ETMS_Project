@@ -49,6 +49,8 @@ const AddTask = () => {
                 if (result['status'] == 'success') {
                     toast.success('New task added..')
 
+                    navigate('/managerHome')
+
                 } else {
                     toast.error(result['error'])
                 }

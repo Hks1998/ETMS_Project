@@ -34,14 +34,15 @@ const Signin = () => {
                     toast.success('Welcome to the application')
 
                     // get the data sent by server
-                    const { empId, name, deptId, role } = result['data']
+                    const { empId, name, dept, role } = result['data']
 
                     // persist the logged in user's information for future use
                     sessionStorage['EmpId'] = empId
                     sessionStorage['Name'] = name
                     sessionStorage['DeptId'] = dept.deptId
                     sessionStorage['loginStatus'] = 1
-                    
+                    sessionStorage['Role'] = role
+
                     if(role == 'admin')
                         navigate('/admin_home')
                     else if(role == 'manager')

@@ -62,10 +62,10 @@ const Employee_Home = () => {
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" 
                             onClick={myProfile}
-                            href="#">My Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Change password</a></li>
+                            >My Profile</a></li>
+                            <li><a class="dropdown-item" >Change password</a></li>
                             <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="#">
+                            <li><a class="dropdown-item" >
                                 <button onClick={logoutUser} className="dropdown-item">
                                     Logout
                                 </button></a></li>

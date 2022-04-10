@@ -1,4 +1,4 @@
-import { useLocation,useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import Employee from '../../components/Employee'
@@ -11,15 +11,15 @@ const Admin_Home = () => {
   const Name = sessionStorage['Name']
 
   const searchEmployees = () => {
-      const url = `${URL}/admin/list_employees`
-      axios.get(url).then((response) => {
-          const result = response.data
-          if (result['status'] == 'success') {
-              setEmployees(result['data'])
-          } else {
-              toast.error(result['error'])
-          }
-      })
+    const url = `${URL}/admin/list_employees`
+    axios.get(url).then((response) => {
+      const result = response.data
+      if (result['status'] == 'success') {
+        setEmployees(result['data'])
+      } else {
+        toast.error(result['error'])
+      }
+    })
   }
 
 
@@ -36,20 +36,20 @@ const Admin_Home = () => {
     navigate('/signin')
   }
   const addEmployee = () => {
-    
-    navigate('/addemployee')
+
+    navigate('/add_employee')
 
   }
   const employeeProfile = () => {
     navigate('/employee_profile')
   }
   const changePassword = () => {
-    navigate('/changepassword')
+    navigate('/change_password')
   }
   useEffect(() => {
     searchEmployees()
-}, [])
- 
+  }, [])
+
 
   return (
     <>
@@ -68,14 +68,14 @@ const Admin_Home = () => {
           <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               Welcome,{Name}
-  </button>
+            </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#"><button onClick={employeeProfile} className="dropdown-item">
-                  My Profile</button></a></li>
-              <li><a class="dropdown-item" href="#"><button onClick={changePassword} className="dropdown-item">
-                  Change Password</button></a></li>
+              <li><a class="dropdown-item" ><button onClick={employeeProfile} className="dropdown-item">
+                My Profile</button></a></li>
+              <li><a class="dropdown-item" ><button onClick={changePassword} className="dropdown-item">
+                Change Password</button></a></li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">
+              <li><a class="dropdown-item">
                 <button onClick={logoutUser} className="dropdown-item">
                   Logout
                 </button></a></li>
@@ -142,8 +142,8 @@ const Admin_Home = () => {
                 </div></div></td>
             </tr> */}
             {employee.map((tempEmployee) => {
-                                return <Employee employee = {tempEmployee} />
-                            })}
+              return <Employee employee={tempEmployee} />
+            })}
 
 
           </tbody>

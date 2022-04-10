@@ -48,10 +48,10 @@ const ManagerHome = () => {
         navigate('/change_password')
     }
     const viewProject = () => {
-        navigate('/projects-list')
+        navigate('/projectsList')
     }
     const createProject = () => {
-        navigate('/create-project')
+        navigate('/createProject')
     }
     const assignTask = () => {
         navigate('/taskAssign')

@@ -63,10 +63,10 @@ const Add_Employee = ()=> {
       const url = `${URL}/admin/add_employee`
       axios.post(url, body).then((response) => {
         const result = response.data
-        debugger
+       
         if (result['status'] == 'success') {
           toast.success('added new employee')
-          navigate('/adminhome')
+          navigate('/admin_home')
         } else {
           toast.error()
         }
