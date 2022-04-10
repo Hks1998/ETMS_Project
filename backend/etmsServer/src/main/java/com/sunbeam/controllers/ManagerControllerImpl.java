@@ -31,7 +31,7 @@ import com.sunbeam.services.EmployeeServiceImpl;
 import com.sunbeam.services.ManagerServiceImpl;
 import com.sunbeam.services.ProjectServiceImpl;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RestController
 public class ManagerControllerImpl {
 	@Autowired
@@ -56,6 +56,13 @@ public class ManagerControllerImpl {
 		System.out.println(project);
 		projectService.createProject(project, projectDTO);
 		return Response.success(project);
+	}
+	
+	@GetMapping("/manager/projectList/{deptId}")
+	public ResponseEntity<?> sortedProjects(@PathVariable("deptId") int deptId) {
+		List<Project> projectList = new ArrayList<>();
+		projectList = projectService.getSortedProjects(deptId);
+		return Response.success(projectList);
 	}
 
 	@GetMapping("/manager/projectList")
@@ -104,11 +111,11 @@ public class ManagerControllerImpl {
 //			return Response.success(updatedTask);
 //		return Response.error(null);
 //	}
-	@GetMapping("/manager/assignTask")
-	public ResponseEntity<?> completedTasks() {
+	@GetMapping("/manager/assignTask/{deptId}")
+	public ResponseEntity<?> completedTasks(@PathVariable("deptId") int deptId) {
 		
 		List<EmployeeDTO> employeeList = new ArrayList<>();
-		employeeList = empService.findAllEmployees();
+		employeeList = empService.findAllEmployees(deptId);
 		return Response.success(employeeList);
 		
 	}

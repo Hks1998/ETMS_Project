@@ -99,7 +99,7 @@ const Admin_Home = () => {
       <br />
       <br />
       <div>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -122,9 +122,9 @@ const Admin_Home = () => {
               <td>102</td>
               <td><div className="row">
                 <div className="col">
-                  <button type="button" class="btn btn-primary">Update</button></div>
+                  <button type="button" className="btn btn-primary">Update</button></div>
                 <div className="col">
-                  <button type="button" class="btn btn-primary">Delete</button>
+                  <button type="button" className="btn btn-primary">Delete</button>
                 </div></div></td>
             </tr>
             <tr>
@@ -136,9 +136,9 @@ const Admin_Home = () => {
               <td>104</td>
               <td><div className="row">
                 <div className="col">
-                  <button type="button" class="btn btn-primary">Update</button></div>
+                  <button type="button" clasclassNames="btn btn-primary">Update</button></div>
                 <div className="col">
-                  <button type="button" class="btn btn-primary">Delete</button>
+                  <button type="button" className="btn btn-primary">Delete</button>
                 </div></div></td>
             </tr> */}
             {employee.map((tempEmployee) => {

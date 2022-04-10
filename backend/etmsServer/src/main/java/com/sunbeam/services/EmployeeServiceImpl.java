@@ -81,8 +81,8 @@ public class EmployeeServiceImpl {
 		return null;
 	}
 
-	public List<EmployeeDTO> findAllEmployees() {
-		List<Employee> employeeList = employeeDao.findAll();
+	public List<EmployeeDTO> findAllEmployees(int deptId) {
+		List<Employee> employeeList = employeeDao.findEmpInDept(deptId);
 		return employeeList.stream().map(employee -> converter.toEmployeeDto(employee)).collect(Collectors.toList());
 	}
 
