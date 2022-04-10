@@ -25,44 +25,48 @@ public class ManagerServiceImpl {
 	private EmployeeDao empDao;
 	@Autowired
 	private DtoEntityConverter converter;
-	
+
 	public List<TaskDTO> findAllTasks() {
 		List<Task> taskList = taskDao.findAll();
-		return taskList.stream()
-			.map(task -> converter.toTaskDto(task))
-			.collect(Collectors.toList());
+		return taskList.stream().map(task -> converter.toTaskDto(task)).collect(Collectors.toList());
 	}
-	
+
 	public Task findByTaskId(int taskId) {
 		Task task = taskDao.findByTaskId(taskId);
 		return task;
 	}
-	
+
 	public void markAsComplete(String statusC, int taskId) {
 		taskDao.markAsComplete(statusC, taskId);
-		
+
 	}
-	
+
 	public Task save(Task task) {
 		return taskDao.save(task);
 	}
-	
+
 	public List<TaskDTO> findAllUnassignedTasks() {
 		List<TaskDTO> taskList = findAllTasks();
-		List<TaskDTO> unassTaskList= new ArrayList<>();
-		for(TaskDTO t: taskList) {
-			if(t.getStatus().equals("Unassigned")) {
+		List<TaskDTO> unassTaskList = new ArrayList<>();
+		for (TaskDTO t : taskList) {
+			if (t.getStatus().equals("Unassigned")) {
 				unassTaskList.add(t);
 			}
 		}
-		
+
 		return unassTaskList;
 	}
-	
-	public List<Task> getSortedTasks(int empId) {
+
+	public List<TaskDTO> getSortedTasks(int empId) {
 //		Employee emp= empDao.findByEmpId(empId);
 		List<Task> sortedTaskList = taskDao.sortedTasks(empId);
-				
-		return sortedTaskList;
+		
+		List<TaskDTO> sortedTaskDtoList= new ArrayList<>();
+		for(Task task : sortedTaskList) {
+			sortedTaskDtoList.add(converter.toTaskDto(task));
+			
+		}
+		
+		return sortedTaskDtoList;
 	}
 }
