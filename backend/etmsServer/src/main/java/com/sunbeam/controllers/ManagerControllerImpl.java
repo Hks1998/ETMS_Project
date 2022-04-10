@@ -31,7 +31,7 @@ import com.sunbeam.services.EmployeeServiceImpl;
 import com.sunbeam.services.ManagerServiceImpl;
 import com.sunbeam.services.ProjectServiceImpl;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RestController
 public class ManagerControllerImpl {
 	@Autowired

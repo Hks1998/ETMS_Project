@@ -12,6 +12,8 @@ import Admin_Home from "./pages/Admin_Home";
 import Add_Employee from "./pages/Add_Employee";
 import Update_Employee from "./pages/Update_Employee";
 import Change_Password from "./pages/Change_Password";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
@@ -34,9 +36,9 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/create-project" element={<CreateProject />} />
-          <Route path="/add-task" element={<AddTask />} />
-          <Route path="/projects-list" element={<ProjectsList />} />
+          <Route path="/createProject" element={<CreateProject />} />
+          <Route path="/addTask" element={<AddTask />} />
+          <Route path="/projectsList" element={<ProjectsList />} />
           <Route path="/managerHome" element={<ManagerHome />} />
           <Route path="/taskAssign" element={<TaskAssign />} />
           <Route path="/employee_home" element={<Employee_Home />} />
