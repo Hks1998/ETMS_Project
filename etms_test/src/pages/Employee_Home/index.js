@@ -22,15 +22,15 @@ const Employee_Home = () => {
                 </div>
                 <div className="col"></div>
                 <div className="col">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div className="btn-group">
+                        <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Welcome, username
                     </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Change password</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="#">
+                        <ul className="dropdown-menu">
+                            <li><a className="dropdown-item" href="#">My Profile</a></li>
+                            <li><a className="dropdown-item" href="#">Change password</a></li>
+                            <li><hr className="dropdown-divider" /></li>
+                            <li><a className="dropdown-item" href="#">
                                 <button onClick={logoutUser} className="dropdown-item">
                                 Logout
                                 </button></a></li>
@@ -43,7 +43,7 @@ const Employee_Home = () => {
 
             <><><hr /><div className="row">
 
-                <table class="table">
+                <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">Task Id</th>
@@ -67,7 +67,7 @@ const Employee_Home = () => {
 
                             <td>
 
-                                <button type="button" class="btn btn-primary">Mark As Completed</button>
+                                <button type="button" className="btn btn-primary">Mark As Completed</button>
                                 <div className="col"></div>
 
 
@@ -84,7 +84,7 @@ const Employee_Home = () => {
                 <br />
                 <br />
                 <div className="row">
-                    <table class="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th scope="col">Task Id</th>

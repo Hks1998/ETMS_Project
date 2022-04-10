@@ -54,7 +54,7 @@ public class DtoEntityConverter {
 			return null;
 		TaskDTO dto= new TaskDTO();
 		dto.setTaskId(entity.gettaskId());
-//		dto.setProjectId(entity.getProject().getprojectId());
+		dto.setProjectId(entity.getProject().getprojectId());
 		dto.setEmployee(entity.getEmployee());
 		dto.setProject(entity.getProject());
 		dto.setTaskName(entity.gettaskName());
