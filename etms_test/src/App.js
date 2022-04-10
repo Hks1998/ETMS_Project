@@ -14,15 +14,24 @@ import Update_Employee from "./pages/Update_Employee";
 import Change_Password from "./pages/Change_Password";
 
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
+const Homepage = () => {
+
+  return <Signin />
+
+}
 
 function App() {
   return (
     <div className="container">
-      
+
       <h1>Employee Task Management System</h1>
       <hr />
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Homepage />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/create-project" element={<CreateProject />} />
@@ -33,14 +42,15 @@ function App() {
           <Route path="/employee_home" element={<Employee_Home />} />
           <Route path="/employee_profile" element={<Employee_Profile />} />
           <Route path="/admin_home" element={<Admin_Home />} />
-          <Route path ="/add_employee" element={<Add_Employee />} />
-          <Route path ="/update_employee" element={<Update_Employee />} />
-          <Route path ="/change_password" element={<Change_Password />} />
+          <Route path="/add_employee" element={<Add_Employee />} />
+          <Route path="/update_employee" element={<Update_Employee />} />
+          <Route path="/change_password" element={<Change_Password />} />
 
-          
-          
+
+
         </Routes>
       </BrowserRouter>
+      <ToastContainer theme="colored" />
     </div>
 
   );
