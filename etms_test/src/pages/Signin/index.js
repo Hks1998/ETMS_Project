@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { URL } from '../../config'
-
+import Employee from '../../components/Employee'
 
 const Signin = () => {
     const [email, setEmail] = useState('')
@@ -34,12 +34,12 @@ const Signin = () => {
                     toast.success('Welcome to the application')
 
                     // get the data sent by server
-                    const { empId, name, dept, role } = result['data']
+                    const { empId, name, deptId, role } = result['data']
 
                     // persist the logged in user's information for future use
                     sessionStorage['EmpId'] = empId
                     sessionStorage['Name'] = name
-                    sessionStorage['DeptID'] = dept.deptId
+                    sessionStorage['DeptID'] = deptId
                     sessionStorage['loginStatus'] = 1
                     
                     if(role == 'admin')
