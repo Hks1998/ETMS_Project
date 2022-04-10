@@ -28,15 +28,15 @@ const Admin_Home = () => {
         <div className="col"></div>
         <div className="col">
 
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <div className="btn-group">
+            <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               Welcome,Username
   </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><a class="dropdown-item" href="#">Change Password</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">
+            <ul className="dropdown-menu">
+              <li><a className="dropdown-item" href="#">Profile</a></li>
+              <li><a className="dropdown-item" href="#">Change Password</a></li>
+              <li><hr className="dropdown-divider" /></li>
+              <li><a className="dropdown-item" href="#">
                 <button onClick={logoutUser} className="dropdown-item">
                   Logout
                 </button></a></li>
@@ -52,7 +52,7 @@ const Admin_Home = () => {
         <br />
         <div className="row">
           <div className="col"></div>
-          <div className="col"><button type="button" class="btn btn-primary"><h3>Add New Employee</h3></button></div>
+          <div className="col"><button type="button" className="btn btn-primary"><h3>Add New Employee</h3></button></div>
           <div className="col"></div>
         </div>
       </div>
@@ -60,7 +60,7 @@ const Admin_Home = () => {
       <br />
       <br />
       <div>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -82,9 +82,9 @@ const Admin_Home = () => {
               <td>102</td>
               <td><div className="row">
                 <div className="col">
-                  <button type="button" class="btn btn-primary">Update</button></div>
+                  <button type="button" className="btn btn-primary">Update</button></div>
                 <div className="col">
-                  <button type="button" class="btn btn-primary">Delete</button>
+                  <button type="button" className="btn btn-primary">Delete</button>
                 </div></div></td>
             </tr>
             <tr>
@@ -96,9 +96,9 @@ const Admin_Home = () => {
               <td>104</td>
               <td><div className="row">
                 <div className="col">
-                  <button type="button" class="btn btn-primary">Update</button></div>
+                  <button type="button" clasclassNames="btn btn-primary">Update</button></div>
                 <div className="col">
-                  <button type="button" class="btn btn-primary">Delete</button>
+                  <button type="button" className="btn btn-primary">Delete</button>
                 </div></div></td>
             </tr>
 
