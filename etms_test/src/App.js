@@ -12,7 +12,8 @@ import Admin_Home from "./pages/Admin_Home";
 import Add_Employee from "./pages/Add_Employee";
 import Update_Employee from "./pages/Update_Employee";
 import Change_Password from "./pages/Change_Password";
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           
         </Routes>
       </BrowserRouter>
+      <ToastContainer theme="colored" />
     </div>
 
   );
