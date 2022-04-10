@@ -1,8 +1,35 @@
 import { useNavigate } from 'react-router'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import TaskList from '../../component/TaskList'
+import { URL } from '../../config'
+
 
 const Employee_Home = () => {
 
+    const [employeeTasks, setEmployeeTasks] = useState([])
+    const id = sessionStorage['EmpId']
+    const username = sessionStorage['Name']
+
+    const searchTasks = () => {
+        const url = `${URL}/employee/${id}`
+        axios.get(url).then((response) => {
+            const result = response.data
+            if (result['status'] == 'success') {
+                setEmployeeTasks(result['data'])
+            } else {
+                toast.error(result['error'])
+            }
+        })
+    }
+
+    useEffect(() => {
+        searchTasks()
+    }, [])
+
     const navigate = useNavigate()
+
 
     const logoutUser = () => {
         // remove the logged users details from session storage
@@ -13,26 +40,34 @@ const Employee_Home = () => {
 
         navigate('/signin')
     }
+    const myProfile = () => {
+        navigate('/employee_profile')
 
-    return (
-        <><hr />
-           <div id="headerRow" className="row">
+    }
+
+
+    return(
+        <div>
+            <div id="headerRow" className="row">
                 <div className="col">
                     <h2>Employee Home Page</h2>
                 </div>
                 <div className="col"></div>
+                <div className="col"></div>
                 <div className="col">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Welcome, username
+                            Welcome, {username}
                     </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" 
+                            onClick={myProfile}
+                            href="#">My Profile</a></li>
                             <li><a class="dropdown-item" href="#">Change password</a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="#">
                                 <button onClick={logoutUser} className="dropdown-item">
-                                Logout
+                                    Logout
                                 </button></a></li>
                         </ul>
                     </div>
@@ -40,72 +75,39 @@ const Employee_Home = () => {
                 <hr />
             </div>
 
-
-            <><><hr /><div className="row">
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Task Id</th>
-                            <th scope="col">Project Name </th>
-                            <th scope="col">Task Name</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">Due Date</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Management System</td>
-
-                            <td>ETMS</td>
-                            <td>15 oct</td>
-
-                            <td>18 Oct</td>
-
-
-                            <td>
-
-                                <button type="button" class="btn btn-primary">Mark As Completed</button>
-                                <div className="col"></div>
-
-
-                            </td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-
-
-            </div>
-            </>
-                <br />
-                <br />
-                <div className="row">
+            <div id="btnRow" className="row">
+                <div className="col"></div>
+                <div className="col">
+                    
+                </div>
+                <div className="col"></div>
+                <div>
+                    <br />
+                    <h3>Task List</h3>
+                    <hr />
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Task Id</th>
-                                <th scope="col">Project Name</th>
-                                <th scope="col">Task Name</th>
-                                <th scope="col">Start Date</th>
-                                <th scope="col">End Date</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Project ID</th>
+                                <th scope="col">Task name</th>
+                                <th scope="col">Start date</th>
+                                <th scope="col">Due date</th>
+                                <th scope="col">Status</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Management</td>
-                                <td>ETMS</td>
-                                <td>15 oct</td>
-                                <td>18 oct</td>
-                            </tr>
+                            {employeeTasks.map((tempTask) => {
+                                return <TaskList task={tempTask} />
+                            })}
 
+                           
                         </tbody>
                     </table>
-                </div></></>
+                </div>
+            </div>
+        </div>
     )
 }
 export default Employee_Home
