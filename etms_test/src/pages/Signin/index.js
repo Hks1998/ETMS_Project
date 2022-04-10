@@ -39,7 +39,7 @@ const Signin = () => {
                     // persist the logged in user's information for future use
                     sessionStorage['EmpId'] = empId
                     sessionStorage['Name'] = name
-                    sessionStorage['DeptID'] = dept.deptId
+                    sessionStorage['DeptId'] = dept.deptId
                     sessionStorage['loginStatus'] = 1
                     
                     if(role == 'admin')

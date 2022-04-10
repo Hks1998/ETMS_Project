@@ -11,7 +11,7 @@ const ManagerHome = () => {
     const [employeeTasks, setEmployeeTasks] = useState([])
     const id = sessionStorage['EmpId']
     const username = sessionStorage['Name']
-
+    
 
     const searchTasks = () => {
         const url = `${URL}/employee/${id}`
@@ -47,6 +47,15 @@ const ManagerHome = () => {
     const changePassword = () => {
         navigate('/change_password')
     }
+    const viewProject = () => {
+        navigate('/projects-list')
+    }
+    const createProject = () => {
+        navigate('/create-project')
+    }
+    const assignTask = () => {
+        navigate('/taskAssign')
+    }
 
 
     return (
@@ -58,21 +67,21 @@ const ManagerHome = () => {
                 <div className="col"></div>
                 <div className="col"></div>
                 <div className="col">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div className="btn-group">
+                        <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Welcome, {username}
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">
+                        <ul className="dropdown-menu">
+                            <li><a className="dropdown-item">
                                 <button onClick={goToProfile} className="dropdown-item">
                                     My profile
                                 </button></a></li>
-                            <li><a class="dropdown-item" href="#">
+                            <li><a className="dropdown-item">
                                 <button onClick={changePassword} className="dropdown-item">
                                     Change password
                                 </button></a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="#">
+                            <li><hr className="dropdown-divider" /></li>
+                            <li><a className="dropdown-item">
                                 <button onClick={logoutUser} className="dropdown-item">
                                     Logout
                                 </button></a></li>
@@ -86,13 +95,13 @@ const ManagerHome = () => {
                 <div className="col"></div>
                 <div className="col">
                     <div className="mb-3">
-                        <button id="ManageBtn" className="btn btn-primary">View Projects</button>
+                        <button onClick={viewProject} id="ManageBtn" className="btn btn-primary">View Projects</button>
                     </div>
                     <div className="mb-3">
-                        <button id="ManageBtn" className="btn btn-primary">Create Projects</button>
+                        <button onClick={createProject} id="ManageBtn" className="btn btn-primary">Create Projects</button>
                     </div>
                     <div className="mb-3">
-                        <button id="ManageBtn" className="btn btn-primary">Assign Tasks</button>
+                        <button onClick={assignTask} id="ManageBtn" className="btn btn-primary">Assign Tasks</button>
                     </div>
                 </div>
                 <div className="col"></div>
@@ -100,7 +109,7 @@ const ManagerHome = () => {
                     <br />
                     <h3>Task List</h3>
                     <hr />
-                    <table class="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
