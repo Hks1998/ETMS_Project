@@ -103,7 +103,7 @@ const Add_Employee = () => {
         <div class="col-sm-10">
           <input onChange={(e) => {
             setPassword(e.target.value)
-          }} type="text" class="form-control" id="inputEmail3"></input>
+          }} type="password" class="form-control" id="inputEmail3"></input>
         </div>
       </div>
       <div class="row mb-3">

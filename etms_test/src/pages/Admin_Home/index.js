@@ -87,15 +87,15 @@ const Admin_Home = () => {
         <br />
         <hr />
         <br />
-        <br />
-        <br />
+       
         <div className="row">
           <div className="col"></div>
-          <div className="col"><button onClick={addEmployee} type="button" class="btn btn-primary"><h3>Add New Employee</h3></button></div>
+          <div className="col"></div>
+          <div className="col-md-auto"><button onClick={addEmployee} type="button" class="btn btn-primary"><h5>Add New Employee</h5></button></div>
+          <div className="col"></div>
           <div className="col"></div>
         </div>
       </div>
-      <br />
       <br />
       <br />
       <div>
@@ -106,41 +106,13 @@ const Admin_Home = () => {
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Phone</th>
-              <th scope="col">Password</th>
               <th scope="col"> Department ID</th>
               <th scope="col"> Manager ID</th>
               <th scope="col"> Action</th>
             </tr>
           </thead>
           <tbody>
-            {/* <tr>
-              <th scope="row">101</th>
-              <td>Harsh</td>
-              <td>harsh@test.com</td>
-              <td>9833423323</td>
-              <td>1</td>
-              <td>102</td>
-              <td><div className="row">
-                <div className="col">
-                  <button type="button" className="btn btn-primary">Update</button></div>
-                <div className="col">
-                  <button type="button" className="btn btn-primary">Delete</button>
-                </div></div></td>
-            </tr>
-            <tr>
-              <th scope="row">102</th>
-              <td>Darshan</td>
-              <td>darshan@test.com</td>
-              <td>9833423323</td>
-              <td>2</td>
-              <td>104</td>
-              <td><div className="row">
-                <div className="col">
-                  <button type="button" clasclassNames="btn btn-primary">Update</button></div>
-                <div className="col">
-                  <button type="button" className="btn btn-primary">Delete</button>
-                </div></div></td>
-            </tr> */}
+            
             {employee.map((tempEmployee) => {
               return <Employee employee={tempEmployee} />
             })}
