@@ -44,7 +44,9 @@ const Employee_Home = () => {
         navigate('/employee_profile')
 
     }
-
+    const changePassword = () => {
+        navigate('/change_password')
+      }
 
     return(
         <div>
@@ -55,22 +57,22 @@ const Employee_Home = () => {
                 <div className="col"></div>
                 <div className="col"></div>
                 <div className="col">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Welcome, {username}
-                    </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" 
-                            onClick={myProfile}
-                            >My Profile</a></li>
-                            <li><a class="dropdown-item" >Change password</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" >
-                                <button onClick={logoutUser} className="dropdown-item">
-                                    Logout
-                                </button></a></li>
-                        </ul>
-                    </div>
+                <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome,{username}
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" ><button onClick={myProfile} className="dropdown-item">
+                My Profile</button></a></li>
+              <li><a class="dropdown-item" ><button onClick={changePassword} className="dropdown-item">
+                Change Password</button></a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item">
+                <button onClick={logoutUser} className="dropdown-item">
+                  Logout
+                </button></a></li>
+            </ul>
+          </div>
                 </div>
                 <hr />
             </div>
